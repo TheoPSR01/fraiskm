@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fraiskm"
+version = "0.1.0"
+description = "Calcul des frais kilométriques selon le barème fiscal français (voiture, moto, cyclomoteur, électrique)"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [{ name = "Théo Pasquier" }]
+keywords = ["frais kilométriques", "barème kilométrique", "impôts", "frais réels", "France", "indemnités kilométriques"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: End Users/Desktop",
+    "Natural Language :: French",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Office/Business :: Financial :: Accounting",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+fraiskm = "fraiskm.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/TheoPSR01/fraiskm"
+Issues = "https://github.com/TheoPSR01/fraiskm/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/fraiskm"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
